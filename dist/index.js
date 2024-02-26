@@ -29446,9 +29446,9 @@ async function preparePipelineResults(inputs) {
     
     const filteredFindingsArray = findingsArray.filter((finding) => {
         return !policyFindingsToExlcude.some((mitigatedFinding) => {
-             core.info(`${finding.files.source_file}   Filtered pipeline findings: ${mitigatedFinding.finding_details}`);
-    core.info(`${+finding.cwe_id}   Filtered pipeline findings: ${mitigatedFinding.finding_details.cwe.id}`);
-    core.info("Mathc",Math.abs(finding.files.source_file.line - mitigatedFinding.finding_details.file_line_number));
+             core.info(`${...finding.files.source_file}   Filtered pipeline findings: ${...mitigatedFinding.finding_details}`);
+    core.info(`${+finding.cwe_id}   cwe_id: ${mitigatedFinding.finding_details.cwe.id}`);
+    core.info(finding.files.source_file.line,"Mathc",Math.abs(finding.files.source_file.line - mitigatedFinding.finding_details.file_line_number),"hi",mitigatedFinding.finding_details.file_line_number);
             return (finding.files.source_file.file === mitigatedFinding.finding_details.file_path &&
                 +finding.cwe_id === mitigatedFinding.finding_details.cwe.id &&
                 Math.abs(finding.files.source_file.line - mitigatedFinding.finding_details.file_line_number) <= LINE_NUMBER_SLOP);
