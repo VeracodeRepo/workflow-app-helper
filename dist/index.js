@@ -29187,7 +29187,7 @@ async function getApplicationByName(appname, vid, vkey) {
         };
         const applicationResponse = await http.getResourceByAttribute(vid, vkey, getApplicationByNameResource);
         const applications = ((_a = applicationResponse._embedded) === null || _a === void 0 ? void 0 : _a.applications) || [];
-        core.info(`applications   applications ${JSON.stringify(applications)}, selecting the first found`);
+        //core.info(`applications   applications ${JSON.stringify(applications)}, selecting the first found`);
         if (applications.length === 0) {
             throw new Error(`No application found with name ${appname}`);
         }
@@ -29422,8 +29422,8 @@ async function preparePipelineResults(inputs) {
     try {
         const application = await (0, application_service_1.getApplicationByName)(inputs.appname, inputs.vid, inputs.vkey);
         const applicationGuid = application.guid;
-        core.info("CHECK ONE CHEK ONEEEEE111");
-       // core.info(`/appsec/v2/applications/${appGuid}/findings`);
+        core.info("CHECK ONE CHEK ONEEEEE111",applicationGuid);
+       core.info(`/appsec/v2/applications/${applicationGuid}/findings`);
         policyFindings = await (0, findings_service_1.getApplicationFindings)(applicationGuid, inputs.vid, inputs.vkey);
     }
     catch (error) {
