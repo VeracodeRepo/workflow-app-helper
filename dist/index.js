@@ -29446,8 +29446,8 @@ async function preparePipelineResults(inputs) {
     
     const filteredFindingsArray = findingsArray.filter((finding) => {
         return !policyFindingsToExlcude.some((mitigatedFinding) => {
-            // core.info(`${JSON.stringify(finding.files.source_file.file)}   Filtered pipeline findings: ${JSON.stringify(mitigatedFinding.finding_details.file_name)}`);
-   // core.info(`${+finding.cwe_id}   cwe_id: ${mitigatedFinding.finding_details.cwe.id}`);
+            core.info(`${JSON.stringify(finding.files.source_file)}   Filtered pipeline findings111: ${JSON.stringify(mitigatedFinding.finding_details)}`);
+  // core.info(`${+finding.cwe_id}   cwe_id: ${mitigatedFinding.finding_details.cwe.id}`);
             // core.info(`${mitigatedFinding.finding_details.file_line_number}   Mathc: ${finding.files.source_file.line}`);
    
             return (finding.files.source_file.file === mitigatedFinding.finding_details.file_name &&
