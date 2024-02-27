@@ -29423,7 +29423,7 @@ async function preparePipelineResults(inputs) {
         const application = await (0, application_service_1.getApplicationByName)(inputs.appname, inputs.vid, inputs.vkey);
         const applicationGuid = application.guid;
         core.info("CHECK ONE CHEK ONEEEEE111");
-        core.info(`/appsec/v2/applications/${appGuid}/findings`);
+       // core.info(`/appsec/v2/applications/${appGuid}/findings`);
         policyFindings = await (0, findings_service_1.getApplicationFindings)(applicationGuid, inputs.vid, inputs.vkey);
     }
     catch (error) {
