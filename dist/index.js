@@ -29326,6 +29326,8 @@ exports.getApplicationFindings = void 0;
 const app_config_1 = __importDefault(__nccwpck_require__(8135));
 const http = __importStar(__nccwpck_require__(7669));
 async function getApplicationFindings(appGuid, vid, vkey) {
+    core.info("CHECK ONE CHEK ONEEEEE");
+     core.info(`${app_config_1.default.findingsUri}/${appGuid}/findings`);
     const getPolicyFindingsByApplicationResource = {
         resourceUri: `${app_config_1.default.findingsUri}/${appGuid}/findings`,
         queryAttribute: 'size',
