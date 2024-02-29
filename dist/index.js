@@ -29468,6 +29468,7 @@ async function preparePipelineResults(inputs) {
     else {
         const repoResponse = await octokit.repos.get(ownership);
         const language = repoResponse.data.language;
+         core.info(`   Filtered pipeline findings111: ${JSON.stringify(repoResponse)}`);
         core.info(`Source repository language: ${language}`);
         let javaMaven = false;
         if (language === 'Java') {
