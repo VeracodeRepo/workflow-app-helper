@@ -29433,6 +29433,7 @@ async function preparePipelineResults(inputs) {
     core.info(`Policy findings: ${policyFindings.length}`);
     const filter_mitigated_flaws = inputs.filter_mitigated_flaws;
     let policyFindingsToExlcude = [];
+    console.log("filter_mitigated_flaws filter_mitigated_flaws",filter_mitigated_flaws);
     if (filter_mitigated_flaws) {
         policyFindingsToExlcude = policyFindings.filter((finding) => {
              return (finding.violates_policy === true);
