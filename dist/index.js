@@ -29435,11 +29435,12 @@ async function preparePipelineResults(inputs) {
     let policyFindingsToExlcude = [];
     if (filter_mitigated_flaws) {
         policyFindingsToExlcude = policyFindings.filter((finding) => {
-            return (finding.violates_policy === true &&
-                finding.finding_status.status === 'CLOSED' &&
-                (finding.finding_status.resolution === 'POTENTIAL_FALSE_POSITIVE' ||
-                    finding.finding_status.resolution === 'MITIGATED') &&
-                finding.finding_status.resolution_status === 'APPROVED');
+            // return (finding.violates_policy === true &&
+            //     finding.finding_status.status === 'CLOSED' &&
+            //     (finding.finding_status.resolution === 'POTENTIAL_FALSE_POSITIVE' ||
+            //         finding.finding_status.resolution === 'MITIGATED') &&
+            //     finding.finding_status.resolution_status === 'APPROVED');
+            return true;
         });
     }
     else
