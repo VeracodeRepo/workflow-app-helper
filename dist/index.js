@@ -29436,10 +29436,13 @@ async function preparePipelineResults(inputs) {
     console.log("filter_mitigated_flaws filter_mitigated_flaws",filter_mitigated_flaws);
     if (filter_mitigated_flaws) {
         policyFindingsToExlcude = policyFindings.filter((finding) => {
-            console.log("finding.violates_policy",finding.violates_policy);
-             console.log("finding.finding_status.status",finding.finding_status.status);
-             console.log("finding.finding_status.resolution",finding.finding_status.resolution);
-             return (finding.violates_policy === true);
+           // console.log("finding.violates_policy",finding.violates_policy);
+             //console.log("finding.finding_status.status",finding.finding_status.status);
+             //console.log("finding.finding_status.resolution",finding.finding_status.resolution);
+            if(finding.finding_status.resolution === 'MITIGATED'){
+                console.log("finding.finding_status.resolution",finding.finding_status.resolution);
+            }
+             return finding.finding_status.resolution === 'MITIGATED';
             //&&
             //     finding.finding_status.status === 'CLOSED' &&
             //     (finding.finding_status.resolution === 'POTENTIAL_FALSE_POSITIVE' ||
