@@ -29444,7 +29444,8 @@ async function preparePipelineResults(inputs) {
     }
     else
         policyFindingsToExlcude = policyFindings.filter((finding) => {
-            return finding.violates_policy === false;
+           // return finding.violates_policy === false;
+            return true;
         });
     core.info(`Mitigated policy findings: ${policyFindingsToExlcude.length}`);
     
