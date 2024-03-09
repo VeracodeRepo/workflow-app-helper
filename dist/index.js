@@ -29436,6 +29436,9 @@ async function preparePipelineResults(inputs) {
     console.log("filter_mitigated_flaws filter_mitigated_flaws",filter_mitigated_flaws);
     if (filter_mitigated_flaws) {
         policyFindingsToExlcude = policyFindings.filter((finding) => {
+            console.log("finding.violates_policy",finding.violates_policy);
+             console.log("finding.finding_status.status",finding.finding_status.status);
+             console.log("finding.finding_status.resolution",finding.finding_status.resolution);
              return (finding.violates_policy === true);
             //&&
             //     finding.finding_status.status === 'CLOSED' &&
