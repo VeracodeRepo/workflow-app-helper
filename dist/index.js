@@ -29435,7 +29435,7 @@ async function preparePipelineResults(inputs) {
     let policyFindingsToExlcude = [];
     if (filter_mitigated_flaws) {
         policyFindingsToExlcude = policyFindings.filter((finding) => {
-             return (finding.violates_policy === true
+             return (finding.violates_policy === true);
             //&&
             //     finding.finding_status.status === 'CLOSED' &&
             //     (finding.finding_status.resolution === 'POTENTIAL_FALSE_POSITIVE' ||
