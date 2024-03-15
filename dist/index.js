@@ -29407,8 +29407,9 @@ async function preparePipelineResults(inputs) {
         findingsArray = parsedData.findings;
     }
     catch (error) {
+        core.setFailed('Error reading or parsing pipeline scan results.1111');
         core.debug(`Error reading or parsing filtered_results.json:${error}`);
-        core.setFailed('Error reading or parsing pipeline scan results.');
+        core.setFailed('Error reading or parsing pipeline scan results.',error);
         await (0, check_service_1.updateChecks)(octokit, checkStatic, inputs.fail_checks_on_error ? Checks.Conclusion.Failure : Checks.Conclusion.Success, [], 'Error reading or parsing pipeline scan results.');
         return;
     }
@@ -29608,8 +29609,9 @@ async function preparePolicyResults(inputs) {
         resultsUrl = await fs.readFile('results_url.txt', 'utf-8');
     }
     catch (error) {
+        core.setFailed('Error reading or parsing pipeline scan results222.');
         core.debug(`Error reading or parsing filtered_results.json:${error}`);
-        core.setFailed('Error reading or parsing pipeline scan results.');
+        core.setFailed('Error reading or parsing pipeline scan results.',error);
         await (0, check_service_1.updateChecks)(octokit, checkStatic, inputs.fail_checks_on_error ? Checks.Conclusion.Failure : Checks.Conclusion.Success, [], 'Error reading or parsing pipeline scan results.');
         return;
     }
